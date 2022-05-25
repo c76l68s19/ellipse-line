@@ -32,5 +32,4 @@ int main(int argc, char * argv[]) {
     Ellipse e2(Point(2,2),1,1);
     LineSegment con{e1.compute_connection(e2)};
     print(e1, e2, con);
-    std::cout << "Hello, World!" << std::endl;
 }
