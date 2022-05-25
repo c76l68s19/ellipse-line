@@ -34,9 +34,9 @@ void print(Ellipse ellipse1, Ellipse ellipse2, std::exception & exp) {
 
 int main(int argc, char * argv[]) {
     Ellipse e1(Point(0,0),100,100);
-    for (auto y : std::vector<int>{200,0,-200})
+    for (auto y : std::vector<int>{400,0,-400})
     {
-        for (auto x : std::vector<int>{-200,0,200})
+        for (auto x : std::vector<int>{-400,0,400})
         {
             Ellipse e2(Point(x,y),100,100);
             try {
