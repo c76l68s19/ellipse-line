@@ -28,8 +28,8 @@ void print(Ellipse ellipse1, Ellipse ellipse2, LineSegment connection) {
 }
 
 int main(int argc, char * argv[]) {
-    Ellipse e1(Point(0,0),1,1);
-    Ellipse e2(Point(2,2),1,1);
+    Ellipse e1(Point(0,0),100,100);
+    Ellipse e2(Point(200,200),100,100);
     LineSegment con{e1.compute_connection(e2)};
     print(e1, e2, con);
 }
