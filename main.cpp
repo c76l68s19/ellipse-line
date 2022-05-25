@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <vector>
 
 #include "Point.h"
 #include "LineSegment.h"
@@ -27,9 +28,24 @@ void print(Ellipse ellipse1, Ellipse ellipse2, LineSegment connection) {
     std::cout << "Ellipses: " << toString(ellipse1) << ", " << toString(ellipse2) << "; connection: " << toString(connection) << "\n";
 }
 
+void print(Ellipse ellipse1, Ellipse ellipse2, std::exception & exp) {
+    std::cout << "Ellipses: " << toString(ellipse1) << ", " << toString(ellipse2) << "; threw: " << exp.what() << "\n";
+}
+
 int main(int argc, char * argv[]) {
     Ellipse e1(Point(0,0),100,100);
-    Ellipse e2(Point(200,200),100,100);
-    LineSegment con{e1.compute_connection(e2)};
-    print(e1, e2, con);
+    for (auto y : std::vector<int>{200,0,-200})
+    {
+        for (auto x : std::vector<int>{-200,0,200})
+        {
+            Ellipse e2(Point(x,y),100,100);
+            try {
+                LineSegment con{e1.compute_connection(e2)};
+                print(e1, e2, con);
+            }
+            catch (std::exception & exp) {
+                print(e1, e2, exp);
+            }
+        }
+    }
 }
