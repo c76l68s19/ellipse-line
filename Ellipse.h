@@ -15,8 +15,8 @@ private:
 public:
     Ellipse(Point center, unsigned int a, unsigned int b) : center(center), a(a), b(b) {}
     Point get_center() const {return center;}
-    unsigned int get_a() const;
-    unsigned int get_b() const;
+    unsigned int get_a() const {return a;};
+    unsigned int get_b() const {return b;};
     // Compute the LineSegment connecting this Ellipse with another Ellipse
     LineSegment compute_connection(Ellipse other);
 };
